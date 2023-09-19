@@ -1,0 +1,20 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* gap: .25rem */
+}
+
+.nameFields {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+    padding: 0 !important;
+}
+
+.btn {
+    margin-top: 1.5rem;
+    background-color: #00ABE4 !important;
+    color: white !important;
+} 

@@ -1,0 +1,69 @@
+.modal {
+    width: 1000px;
+}
+
+.select {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+}
+
+.trigger {
+    cursor: pointer;
+    width: 25px;
+}
+
+.selectItems {
+    width: 270px;
+    height: 0;
+
+    background-color: white;
+    
+    position: absolute;
+    top: 120%;
+
+    overflow-y: hidden;
+    transition: height 0.25s;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.openedSelectItems {
+
+    height: 130px;
+    transition: height 0.5s;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+
+}
+
+.item {
+    width: 100%;
+    cursor: pointer;
+    padding: .5rem 1rem;
+}
+
+.item:first-child {
+}
+
+.item:hover {
+    background-color: aliceblue;
+}
+
+.content {
+    width: 100%;
+    min-height: 200px !important;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem
+}
+
+

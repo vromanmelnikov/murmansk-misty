@@ -1,0 +1,14 @@
+.button {
+    width: 50px !important;
+    height: 50px !important;
+    border: 1px solid rgba(0, 0, 0, 0.375);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.button > img {
+    width: 80%;
+}

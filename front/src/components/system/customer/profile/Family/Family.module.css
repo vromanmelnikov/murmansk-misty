@@ -1,0 +1,18 @@
+.family {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.75rem !important;
+    align-items: center;
+}
+
+.family>.item {
+    cursor: pointer;
+    width: 4rem;
+    height: 4rem;
+    background-color: #E9F1FA;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background-size: contain;
+}

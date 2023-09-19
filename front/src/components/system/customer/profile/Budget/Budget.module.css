@@ -1,0 +1,17 @@
+.budget {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: .5rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.budgetText {
+    font-size: 1.3rem;
+}
+
+.button {
+    font-size: 100%;
+    margin-left: 14.8rem;
+}

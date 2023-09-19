@@ -1,0 +1,154 @@
+version: "3.6"
+
+services:
+  front_hack:
+    image: vaynbaum/north-hack:front_hack
+    container_name: front_hack
+    restart: always
+    networks:
+      - hack_microservices
+    ports:
+      - 3000:3000
+
+  proxy_hack:
+    image: vaynbaum/north-hack:proxy_hack
+    container_name: proxy_hack
+    volumes:
+      - ./ng/nginx.conf:/etc/nginx.conf
+    networks:
+      - hack_microservices
+    ports:
+      - 80:80
+
+  redis_service_hack:
+    image: redis:latest
+    container_name: redis_service_hack
+    networks:
+      - hack_microservices
+    ports:
+      - "6380:6379"
+    expose:
+      - 6379
+
+  postgres_db_hack:
+      image: postgres:14
+      env_file:
+      - .env
+      container_name: postgres_db_hack
+      volumes:
+        - .:/docker-entrypoint-initdb.d
+      ports:
+        - "5433:5432"
+      expose:
+        - 5432
+      networks:
+        - hack_microservices
+        
+  typesense_hack:
+    image: typesense/typesense:0.25.1
+    restart: on-failure
+    container_name: typesense_hack
+    ports:
+      - "8108:8108"
+    expose:
+      - 8108
+    volumes:
+      - ./typesense-data:/data
+    command: '--data-dir /data --api-key=Hu52dwsas2AdxdE'
+    networks:
+      - hack_microservices
+
+  api_hack:
+    image: vaynbaum/north-hack:api
+    container_name: api_hack
+    restart: always
+    env_file: 
+      - .env
+    ports:
+      - "6100:6100"
+    expose:
+      - 6100
+    depends_on:
+      - postgres_db_hack
+      - redis_service_hack
+    networks:
+      - hack_microservices
+
+  ai_hack:
+    image: vaynbaum/north-hack:ai
+    container_name: ai_hack
+    restart: always
+    env_file: 
+      - ai.env
+    ports:
+      - "6101:6101"
+    expose:
+      - 6101
+    depends_on:
+      - typesense_hack
+      - api_hack
+    networks:
+      - hack_microservices
+
+  worker_hack:
+    image: vaynbaum/north-hack:worker
+    container_name: worker_hack
+    restart: always
+    env_file: 
+      - worker.env
+    ports:
+      - "6104:6104"
+    expose:
+      - 6104
+    depends_on:
+      - api_hack
+    networks:
+      - hack_microservices
+
+  mailer_hack:
+    image: vaynbaum/north-hack:mailer
+    container_name: mailer_hack
+    restart: always
+    env_file: 
+      - mail.env
+    ports:
+      - "6102:6102"
+    expose:
+      - 6102
+    networks:
+      - hack_microservices
+
+  celery_hack:
+    image: vaynbaum/north-hack:celery_hack
+    env_file: .env
+    container_name: celery_hack
+    depends_on:
+      - redis_service_hack
+    networks:
+      - hack_microservices
+  
+  beat_hack:
+    image: vaynbaum/north-hack:beat_hack
+    container_name: beat_hack
+    env_file: .env
+    depends_on:
+      - redis_service_hack
+    networks:
+      - hack_microservices
+
+  flower_hack:
+    image: vaynbaum/north-hack:flower_hack
+    container_name: flower_hack
+    env_file: .env
+    depends_on:
+      - redis_service_hack
+      - beat_hack
+      - celery_hack
+    networks:
+      - hack_microservices
+    ports:
+      - 5555:5555
+
+networks:
+  hack_microservices:
+    driver: bridge

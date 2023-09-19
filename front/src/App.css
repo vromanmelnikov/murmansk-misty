@@ -1,0 +1,62 @@
+body {
+    font-size: 16px;
+    background-color: #E9F1FA !important;
+    padding-bottom: 5rem !important;
+}
+
+input {
+    font-size: 18px !important;
+}
+
+.container {
+
+    width: 1280px;
+    margin: 0 auto;
+
+}
+
+h1, h2, h3 {
+    margin: 0 !important;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem !important;
+}
+
+h2 {
+    font-size: 1.5rem !important;
+}
+
+h3 {
+    font-size: 1.15rem !important;
+}
+
+h5 {
+    margin-bottom: 0 !important;
+}
+
+a {
+    font-weight: 500;
+}
+
+.badge {
+    font-weight: 500 !important;
+}
+
+.card, .row, .col-6 {
+    z-index: 1 !important;
+}
+
+.icon-button {
+    /* width: 40px; */
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.icon-button > img {
+    height: 90%;
+}

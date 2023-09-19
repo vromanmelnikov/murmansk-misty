@@ -1,0 +1,5 @@
+ADD_FILE_FAILED = "Файл не удалось загрузить"
+GET_FILE_FAILED = "Не удалось получить файл"
+DELETE_FILE_FAILED = "Не удалось удалить файл"
+DELETE_FILE_SUCCESS = "Файл успешно удален"
+FILE_NOT_FOUND = "Файл не найден"

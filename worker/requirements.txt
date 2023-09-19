@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+gunicorn
+python-dotenv
+python-multipart
+email-validator
+requests
+asyncpg
+pydantic-sqlalchemy

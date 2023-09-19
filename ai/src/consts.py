@@ -1,0 +1,3 @@
+NAME_SCEMA_ENDPOINT = "methods"
+NAME_SCEMA_PRODUCT = "products"
+COUNT_ITEMS = 2

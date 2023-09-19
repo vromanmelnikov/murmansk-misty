@@ -1,0 +1,53 @@
+
+
+.item {
+    /* width: 230px; */
+    height: 100%;
+    aspect-ratio: 1/1.3;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    padding: .5rem;
+    padding-top: 1rem;
+    /* background-color: antiquewhite; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: ; */
+    gap: .5rem;
+}
+
+.img {
+    width: 90% !important;
+    aspect-ratio: 1;
+    background-color: aliceblue;
+    background-position-x: center;
+    background-size: cover;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.156);
+    border-radius: 5px;
+}
+
+.cost {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.name {
+    max-width: 90%;
+    font-size: 1.2rem;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: #0D6EFD;
+    color: #0949aa;
+}
+
+.name:hover {
+    color: #0D6EFD;
+}
+
+
+
+
+.button {
+    margin-left: 2.5rem;
+}
